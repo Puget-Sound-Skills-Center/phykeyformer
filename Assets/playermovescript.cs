@@ -51,7 +51,7 @@ public class playermovescript : MonoBehaviour
             cancurrentlyjump = true;
         }
         else { cancurrentlyjump = false; }
-        if (SceneManager.GetActiveScene().buildIndex <= 8) //Make sure to change this number to the number of the scene where you want the new input system to start working
+        if (SceneManager.GetActiveScene().buildIndex >= 7) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {
             if (!(Input.GetKey(KeyCode.LeftArrow) & Input.GetKey(KeyCode.RightArrow)))
             {
@@ -69,7 +69,7 @@ public class playermovescript : MonoBehaviour
                 { body.linearVelocity = new Vector2(-speed, body.linearVelocity.y); }
             }
         }
-        if (SceneManager.GetActiveScene().buildIndex <= 8) 
+        if (SceneManager.GetActiveScene().buildIndex >= 7) 
         {
             if (((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space))) && groundscript.canjump()) // && canjump boolean from other thing (&& grounddetection.canjump) DONE
             //if pressed, turn canjump to false, but when touching the ground again, turn canjump to true
