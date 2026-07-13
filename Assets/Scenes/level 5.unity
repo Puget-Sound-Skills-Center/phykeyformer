@@ -1316,6 +1316,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c98bfb1f91ce68f41b31c25e78ca1b74, type: 3}
+--- !u!50 &692994184 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8249359904971805518, guid: 83b9c167dbd52d04f8ba695cecbd60bc, type: 3}
+  m_PrefabInstance: {fileID: 1622770026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &793011762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3038,6 +3043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 6983404084282711109, guid: 83b9c167dbd52d04f8ba695cecbd60bc, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 692994184}
     - target: {fileID: 8453497308160881347, guid: 83b9c167dbd52d04f8ba695cecbd60bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.25

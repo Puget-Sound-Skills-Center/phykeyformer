@@ -36,10 +36,11 @@ public class playermovescript : MonoBehaviour
     {
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
+
     }
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+       
     }
     // Update is called once per frame
     //eventually replace input.getaxis with thing that gets transmitted when key gets "pressed" in game
@@ -50,7 +51,7 @@ public class playermovescript : MonoBehaviour
             cancurrentlyjump = true;
         }
         else { cancurrentlyjump = false; }
-        if (SceneManager.GetActiveScene().buildIndex <= 6)
+        if (SceneManager.GetActiveScene().buildIndex <= 8) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {
             if (!(Input.GetKey(KeyCode.LeftArrow) & Input.GetKey(KeyCode.RightArrow)))
             {
@@ -59,6 +60,7 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
+
             if (!(left.isleftheld && right.isrightheld))
             {
                 if (right.isrightheld)
@@ -68,7 +70,7 @@ public class playermovescript : MonoBehaviour
             }
 
         }
-        if (SceneManager.GetActiveScene().buildIndex <= 6) 
+        if (SceneManager.GetActiveScene().buildIndex <= 8) 
         {
             if (((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space))) && groundscript.canjump()) // && canjump boolean from other thing (&& grounddetection.canjump) DONE
             //if pressed, turn canjump to false, but when touching the ground again, turn canjump to true
@@ -79,7 +81,7 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
-            if (up.isupheld || space.isspaceheld) 
+            if (up.isupheld || space.isspaceheld) //Make sure to change this number to the number of the scene where you want the new input system to start working
             { body.linearVelocity = new Vector2(body.linearVelocity.x, jumpheight); }
         }
     }
