@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class spacecollision : MonoBehaviour
 {
-    public bool isspaceheld = false;
-
+    public bool isspaceheld;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //change to pressed key (greyed out)

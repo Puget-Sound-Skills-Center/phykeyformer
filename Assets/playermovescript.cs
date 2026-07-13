@@ -36,11 +36,6 @@ public class playermovescript : MonoBehaviour
     {
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
-
-    }
-    private void Awake()
-    {
-       
     }
     // Update is called once per frame
     //eventually replace input.getaxis with thing that gets transmitted when key gets "pressed" in game
@@ -51,7 +46,7 @@ public class playermovescript : MonoBehaviour
             cancurrentlyjump = true;
         }
         else { cancurrentlyjump = false; }
-        if (SceneManager.GetActiveScene().buildIndex >= 7) //Make sure to change this number to the number of the scene where you want the new input system to start working
+        if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {
             if (!(Input.GetKey(KeyCode.LeftArrow) & Input.GetKey(KeyCode.RightArrow)))
             {
@@ -60,16 +55,20 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
-
-            if (!(left.isleftheld && right.isrightheld))
+            if (!(left.isleftheld && right.isrightheld)) 
+                /*  all booleans from the collision scripts (left.isleftheld, right.isrightheld, etc.) all give NullReferenceException: Object reference not set to an instance of an object  [next line]  playermovescript.Update()(at Assets / playermovescript.cs:62)
+                    trying getcomponent i guess
+                
+                */
             {
                 if (right.isrightheld)
                 { body.linearVelocity = new Vector2(speed, body.linearVelocity.y); }
                 else if (left.isleftheld)
                 { body.linearVelocity = new Vector2(-speed, body.linearVelocity.y); }
             }
+        
         }
-        if (SceneManager.GetActiveScene().buildIndex >= 7) 
+        if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {
             if (((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space))) && groundscript.canjump()) // && canjump boolean from other thing (&& grounddetection.canjump) DONE
             //if pressed, turn canjump to false, but when touching the ground again, turn canjump to true
@@ -80,7 +79,7 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
-            if (up.isupheld || space.isspaceheld) //Make sure to change this number to the number of the scene where you want the new input system to start working
+            if (up.isupheld || space.isspaceheld)
             { body.linearVelocity = new Vector2(body.linearVelocity.x, jumpheight); }
         }
     }

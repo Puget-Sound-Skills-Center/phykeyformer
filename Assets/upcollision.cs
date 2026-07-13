@@ -2,14 +2,7 @@ using UnityEngine;
 
 public class upcollision : MonoBehaviour
 {
-    public bool isupheld = false;
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public bool isupheld;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //change to pressed key (greyed out)
