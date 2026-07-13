@@ -32,10 +32,15 @@ public class playermovescript : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpheight;
     [SerializeField] private float acceleration; //maybe?
-    private void Start()
+    void Start()
     {
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
+        
+        left = GameObject.Find("leftarrow").GetComponent<leftcollision>(); // error, object reference not set? (prob just for things where left, right, up, space dont exist)
+        right = GameObject.Find("rightarrow").GetComponent<rightcollision>();
+        up = GameObject.Find("uparrow").GetComponent<upcollision>();
+        space = GameObject.Find("spacebar").GetComponent<spacecollision>();
     }
     // Update is called once per frame
     //eventually replace input.getaxis with thing that gets transmitted when key gets "pressed" in game
