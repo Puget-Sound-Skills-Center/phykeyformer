@@ -37,7 +37,7 @@ public class playermovescript : MonoBehaviour
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
         
-        left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); // error, object reference not set? (prob just for things where left, right, up, space dont exist)
+        left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); //note to self, reference correct object inside GameObject.Find("")
         Debug.Log("left is " + left);
         right = GameObject.Find("rightsquare").GetComponent<rightcollision>();
         Debug.Log("left is " + right);
