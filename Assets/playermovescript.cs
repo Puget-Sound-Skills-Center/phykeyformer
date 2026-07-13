@@ -68,7 +68,6 @@ public class playermovescript : MonoBehaviour
                 else if (left.isleftheld)
                 { body.linearVelocity = new Vector2(-speed, body.linearVelocity.y); }
             }
-
         }
         if (SceneManager.GetActiveScene().buildIndex <= 8) 
         {
