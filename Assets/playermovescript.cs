@@ -92,7 +92,10 @@ public class playermovescript : MonoBehaviour
         else
         {
             if (up.isupheld() || space.isspaceheld())
-            { body.linearVelocity = new Vector2(body.linearVelocity.x, jumpheight); }
+            { 
+                Debug.Log("yo up/space works");
+                body.linearVelocity = new Vector2(body.linearVelocity.x, jumpheight); 
+            }
         }
     }
 }
