@@ -2,22 +2,27 @@ using UnityEngine;
 
 public class leftcollision : MonoBehaviour
 {
-    public bool isleftheld;
+    public bool isleftheldcollision;
+    public bool isleftheld()
+    {
+        if (isleftheldcollision) { return true; }
+        else { return false; }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //change to pressed key (greyed out)
-        isleftheld = true;
-        Debug.Log("left");
+        isleftheldcollision = true;
+        Debug.Log("right");
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        isleftheld = true;
+        isleftheldcollision = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         //unpress key (ungreyout)
-        isleftheld = false;
-        Debug.Log("no left");
+        isleftheldcollision = false;
+        Debug.Log("no right");
     }
 }

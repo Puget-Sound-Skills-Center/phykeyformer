@@ -37,13 +37,16 @@ public class playermovescript : MonoBehaviour
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
         
-        left = GameObject.Find("leftarrow").GetComponent<leftcollision>(); // error, object reference not set? (prob just for things where left, right, up, space dont exist)
-        right = GameObject.Find("rightarrow").GetComponent<rightcollision>();
-        up = GameObject.Find("uparrow").GetComponent<upcollision>();
-        space = GameObject.Find("spacebar").GetComponent<spacecollision>();
+        left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); // error, object reference not set? (prob just for things where left, right, up, space dont exist)
+        Debug.Log("left is " + left);
+        right = GameObject.Find("rightsquare").GetComponent<rightcollision>();
+        Debug.Log("left is " + right);
+        up = GameObject.Find("upsquare").GetComponent<upcollision>();
+        Debug.Log("left is " + up);
+        space = GameObject.Find("spacesquare").GetComponent<spacecollision>();
+        Debug.Log("left is " + space);
+        //eventually findwithtag honestly
     }
-    // Update is called once per frame
-    //eventually replace input.getaxis with thing that gets transmitted when key gets "pressed" in game
     void Update()
     {
         if (!cancurrentlyjump && groundscript.canjump())
@@ -51,6 +54,7 @@ public class playermovescript : MonoBehaviour
             cancurrentlyjump = true;
         }
         else { cancurrentlyjump = false; }
+        
         if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {
             if (!(Input.GetKey(KeyCode.LeftArrow) & Input.GetKey(KeyCode.RightArrow)))
@@ -60,16 +64,19 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
-            if (!(left.isleftheld && right.isrightheld)) 
-                /*  all booleans from the collision scripts (left.isleftheld, right.isrightheld, etc.) all give NullReferenceException: Object reference not set to an instance of an object  [next line]  playermovescript.Update()(at Assets / playermovescript.cs:62)
-                    trying getcomponent i guess
-                
-                */
+            if (!(left.isleftheld() && right.isrightheld())) 
             {
-                if (right.isrightheld)
-                { body.linearVelocity = new Vector2(speed, body.linearVelocity.y); }
-                else if (left.isleftheld)
-                { body.linearVelocity = new Vector2(-speed, body.linearVelocity.y); }
+                if (right.isrightheld())
+                {
+                    body.linearVelocity = new Vector2(speed, body.linearVelocity.y);
+                    Debug.Log("yo right works");
+                }
+
+                else if (left.isleftheld())
+                {
+                    body.linearVelocity = new Vector2(-speed, body.linearVelocity.y);
+                    Debug.Log("yo left works");
+                }
             }
         
         }
@@ -84,7 +91,7 @@ public class playermovescript : MonoBehaviour
         }
         else
         {
-            if (up.isupheld || space.isspaceheld)
+            if (up.isupheld() || space.isspaceheld())
             { body.linearVelocity = new Vector2(body.linearVelocity.x, jumpheight); }
         }
     }

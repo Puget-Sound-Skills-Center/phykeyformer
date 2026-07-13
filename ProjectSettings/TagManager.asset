@@ -11,6 +11,10 @@ TagManager:
   - controlledplayer
   - Logic Manager
   - Static
+  - left
+  - right
+  - up
+  - space
   layers:
   - Default
   - TransparentFX
