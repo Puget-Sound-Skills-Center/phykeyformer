@@ -78,7 +78,7 @@ public class playermovescript : MonoBehaviour
                     Debug.Log("yo left works");
                 }
             }
-        
+
         }
         if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
         {

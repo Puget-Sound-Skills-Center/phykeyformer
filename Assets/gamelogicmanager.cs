@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gamelogicmanager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool mousedown;
+    public bool dropobject() 
     {
-        
+        if (mousedown && SceneManager.GetActiveScene().buildIndex > 7) { return true; }
+        else { return false; }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        mousedown = true;
+    }
+    private void OnMouseUp()
+    {
+        mousedown = false;
     }
 }
