@@ -13,7 +13,7 @@ public class followmouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objlocation = spawntransform.position;
-        spawntransform.position = Mouse.current.position.ReadValue();
+        //(Mouse.current.position.ReadValue().x-1440)/144;
+        //(Mouse.current.position.ReadValue().y-720)/144;
     }
 }

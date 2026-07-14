@@ -10,7 +10,6 @@ public class objectdrop : MonoBehaviour
     public GameObject square;
     public GameObject circle;
     private followmouse mouse;
-    private Quaternion norotation = Quaternion.identity;
 
     string[,] dropbylevel = {   {"c", ""}, //7
                                 {"c", ""}, //8
@@ -35,7 +34,7 @@ public class objectdrop : MonoBehaviour
         Debug.Log(dropbylevel[arraytogoto, currentobj]);
         if (logic.dropobject() && dropbylevel[arraytogoto, currentobj] != "") 
         { 
-            if (dropbylevel[arraytogoto, currentobj] == "c") { Object.Instantiate(circle, mouse.spawntransform.position, norotation); }
+            if (dropbylevel[arraytogoto, currentobj] == "c") { Object.Instantiate(circle, mouse.spawntransform.position, Quaternion.identity); }
             else if (dropbylevel[arraytogoto, currentobj] == "s") { }
             else { Debug.Log("yo bro you messed something up inside the omega array in objectdrop.cs"); }
         }
