@@ -36,15 +36,18 @@ public class playermovescript : MonoBehaviour
     {
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
-        
-        left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); //note to self, reference correct object inside GameObject.Find("")
-        Debug.Log("left is " + left);
-        right = GameObject.Find("rightsquare").GetComponent<rightcollision>();
-        Debug.Log("left is " + right);
-        up = GameObject.Find("upsquare").GetComponent<upcollision>();
-        Debug.Log("left is " + up);
-        space = GameObject.Find("spacesquare").GetComponent<spacecollision>();
-        Debug.Log("left is " + space);
+
+        if (SceneManager.GetActiveScene().buildIndex > 6)
+        {
+            left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); //note to self, reference correct object inside GameObject.Find("")
+            Debug.Log("left is " + left);
+            right = GameObject.Find("rightsquare").GetComponent<rightcollision>();
+            Debug.Log("left is " + right);
+            up = GameObject.Find("upsquare").GetComponent<upcollision>();
+            Debug.Log("left is " + up);
+            space = GameObject.Find("spacesquare").GetComponent<spacecollision>();
+            Debug.Log("left is " + space);
+        }
         //eventually findwithtag honestly
     }
     void Update()

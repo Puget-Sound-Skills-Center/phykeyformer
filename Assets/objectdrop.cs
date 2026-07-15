@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -12,15 +10,15 @@ public class objectdrop : MonoBehaviour
     public GameObject square;
     public GameObject circle;
     private followmouse mouse;
-    string[,] dropbylevel = {   {"c", ""}, //7
-                                {"c", ""}, //8
-                                {"c", "s"}, //9
-                                {"c", "s"}, //10
-                                {"c", "s"}, //11
-                                {"c", "s"}, //12
-                                {"c", "s"}, //13
-                                {"c", "s"}, //14
-                                {"c", "s"}, //15
+    string[,] dropbylevel = {   {"s", "", "", "", "", "", "", "", "", ""}, //7
+                                {"c", "", "", "", "", "", "", "", "", ""}, //8
+                                {"c", "s", "", "", "", "", "", "", "", ""}, //9
+                                {"s", "", "", "", "", "", "", "", "", ""}, //10
+                                {"s", "s", "", "", "", "", "", "", "", ""}, //11
+                                {"c", "s", "", "", "", "", "", "", "", ""}, //12
+                                {"c", "s", "", "", "", "", "", "", "", ""}, //13
+                                {"c", "s", "", "", "", "", "", "", "", ""}, //14
+                                {"c", "s", "", "", "", "", "", "", "", ""}, //15
                             };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +30,7 @@ public class objectdrop : MonoBehaviour
     void Update()
     {
         Debug.Log(dropbylevel[arraytogoto, currentobj]);
-        Debug.Log(Mouse.current.leftButton.wasPressedThisFrame);
+        Debug.Log(Mouse.current.leftButton.wasPressedThisFrame); 
         if ((Mouse.current.leftButton.wasPressedThisFrame) && (dropbylevel[arraytogoto, currentobj] != ""))
         {
             Debug.Log("hi");
