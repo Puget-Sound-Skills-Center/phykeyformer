@@ -114,5 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b97f451fcb7fb48b6d8594c9b0fa32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logic: {fileID: 7669812326004308677, guid: 8296b8f92596c8d49a744fb5b0366107, type: 3}
   square: {fileID: 3838704320907825004, guid: fca832d7c50cd444bad55dd0a6150a54, type: 3}
   circle: {fileID: 5666927081453812430, guid: 3085ef96fb1e72a4ea077c954f2cedf0, type: 3}

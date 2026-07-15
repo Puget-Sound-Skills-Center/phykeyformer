@@ -1,6 +1,8 @@
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class objectdrop : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class objectdrop : MonoBehaviour
     public GameObject square;
     public GameObject circle;
     private followmouse mouse;
-
     string[,] dropbylevel = {   {"c", ""}, //7
                                 {"c", ""}, //8
                                 {"c", "s"}, //9
@@ -25,18 +26,20 @@ public class objectdrop : MonoBehaviour
     void Start()
     {
         currentobj = 0;
-        arraytogoto = SceneManager.GetActiveScene().buildIndex - 7;
+        arraytogoto = SceneManager.GetActiveScene().buildIndex - 8;
+        mouse = GetComponent<followmouse>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         Debug.Log(dropbylevel[arraytogoto, currentobj]);
-        if (logic.dropobject() && dropbylevel[arraytogoto, currentobj] != "") 
-        { 
+        Debug.Log(Mouse.current.leftButton.wasPressedThisFrame);
+        if ((Mouse.current.leftButton.wasPressedThisFrame) && (dropbylevel[arraytogoto, currentobj] != ""))
+        {
+            Debug.Log("hi");
             if (dropbylevel[arraytogoto, currentobj] == "c") { Object.Instantiate(circle, mouse.spawntransform.position, Quaternion.identity); }
-            else if (dropbylevel[arraytogoto, currentobj] == "s") { }
+            else if (dropbylevel[arraytogoto, currentobj] == "s") { Object.Instantiate(square, mouse.spawntransform.position, Quaternion.identity); } //these lowk dont work i think
             else { Debug.Log("yo bro you messed something up inside the omega array in objectdrop.cs"); }
+            currentobj += 1;
         }
     }
 }
