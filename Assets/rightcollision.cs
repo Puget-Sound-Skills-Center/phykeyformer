@@ -10,7 +10,6 @@ public class rightcollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //change to pressed key (greyed out)
         isrightheldcollision = true;
         Debug.Log("right");
     }
@@ -21,7 +20,6 @@ public class rightcollision : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //unpress key (ungreyout)
         isrightheldcollision = false;
         Debug.Log("no right");
     }

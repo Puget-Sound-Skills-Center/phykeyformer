@@ -33,7 +33,7 @@ public class playermovescript : MonoBehaviour
         cancurrentlyjump = false;
         groundscript = GameObject.FindWithTag("grounded").GetComponent<grounded>();
 
-        if (SceneManager.GetActiveScene().buildIndex > 6)
+        if (SceneManager.GetActiveScene().buildIndex > 6 && SceneManager.GetActiveScene().buildIndex < 16)
         {
             left = GameObject.Find("leftsquare").GetComponent<leftcollision>(); //note to self, reference correct object inside GameObject.Find("")
             Debug.Log("left is " + left);
@@ -54,7 +54,7 @@ public class playermovescript : MonoBehaviour
         }
         else { cancurrentlyjump = false; }
         
-        if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
+        if (SceneManager.GetActiveScene().buildIndex <= 6 || SceneManager.GetActiveScene().buildIndex >= 16) //should be correct number
         {
             if (!(Input.GetKey(KeyCode.LeftArrow) & Input.GetKey(KeyCode.RightArrow)))
             {
@@ -65,6 +65,7 @@ public class playermovescript : MonoBehaviour
         {
             if (!(left.isleftheld() && right.isrightheld())) 
             {
+                //getting here, but failing next checks, i guess?
                 if (right.isrightheld())
                 {
                     body.linearVelocity = new Vector2(speed, body.linearVelocity.y);
@@ -79,7 +80,7 @@ public class playermovescript : MonoBehaviour
             }
 
         }
-        if (SceneManager.GetActiveScene().buildIndex <= 6) //Make sure to change this number to the number of the scene where you want the new input system to start working
+        if (SceneManager.GetActiveScene().buildIndex <= 6 || SceneManager.GetActiveScene().buildIndex >= 16) //should be correct number
         {
             if (((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space))) && groundscript.canjump()) // && canjump boolean from other thing (&& grounddetection.canjump) DONE
             //if pressed, turn canjump to false, but when touching the ground again, turn canjump to true

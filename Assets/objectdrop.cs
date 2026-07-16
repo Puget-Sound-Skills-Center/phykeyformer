@@ -5,20 +5,19 @@ using UnityEngine.InputSystem;
 public class objectdrop : MonoBehaviour
 {
     [SerializeField] private gamelogicmanager logic;
-    private int currentobj;
-    private int arraytogoto;
+    public int currentobj;
+    public int arraytogoto;
     public GameObject square;
     public GameObject circle;
     private followmouse mouse;
-    string[,] dropbylevel = {   {"s", "", "", "", "", "", "", "", "", ""}, //7
-                                {"c", "", "", "", "", "", "", "", "", ""}, //8
-                                {"s", "", "", "", "", "", "", "", "", ""}, //9
-                                {"c", "", "", "", "", "", "", "", "", ""}, //10
-                                {"s", "c", "", "", "", "", "", "", "", ""}, //11
-                                {"c", "s", "", "", "", "", "", "", "", ""}, //12
-                                {"c", "s", "", "", "", "", "", "", "", ""}, //13
-                                {"c", "s", "", "", "", "", "", "", "", ""}, //14
-                                {"c", "s", "", "", "", "", "", "", "", ""}, //15
+    string[,] dropbylevel = {   {"s", "", "", "", ""}, //7
+                                {"c", "", "", "", ""}, //8
+                                {"s", "", "", "", ""}, //9
+                                {"c", "", "", "", ""}, //10
+                                {"s", "c", "", "", ""}, //11
+                                {"c", "c", "", "", ""}, //12
+                                {"c", "s", "", "", ""}, //13
+                                {"c", "s", "s", "", ""}, //14
                             };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,8 +28,7 @@ public class objectdrop : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(dropbylevel[arraytogoto, currentobj]);
-        Debug.Log(Mouse.current.leftButton.wasPressedThisFrame); 
+        Debug.Log(dropbylevel[arraytogoto, 0]);
         if ((Mouse.current.leftButton.wasPressedThisFrame) && (dropbylevel[arraytogoto, currentobj] != ""))
         {
             Debug.Log("hi");
