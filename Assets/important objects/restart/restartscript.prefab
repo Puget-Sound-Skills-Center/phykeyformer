@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8369891292203109602}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 910.9112, y: 546.6352, z: -1.9640403}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eeb19997f9aeca4b8a0de3a1b03b3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentindex: 0
